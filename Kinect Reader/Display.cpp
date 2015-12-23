@@ -30,10 +30,6 @@ void Display::runDisplay() {
 int Display::initSystem() {
     //TODO: add proper error checking
 
-    _window = nullptr;
-    _rndr = nullptr;
-    _txtr = nullptr;
-
     _x = INIT_X;
     _y = INIT_Y;
     _w = INIT_W;

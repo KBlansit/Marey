@@ -25,10 +25,9 @@ private:
     void validMove();
 
     // attributes
-    SDL_Window* _window;
-    SDL_Renderer* _rndr;
-    SDL_Texture* _txtr;
-    int* _pxlBffr = new int[_scnWidth * _scnHeight];
+    SDL_Window* _window = nullptr;
+    SDL_Renderer* _rndr = nullptr;
+    SDL_Texture* _txtr = nullptr;
 
     SDL_Rect _r;
 
