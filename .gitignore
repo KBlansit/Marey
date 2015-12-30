@@ -212,3 +212,9 @@ _Pvt_Extensions/
 ModelManifest.xml
 /deps
 *.png
+
+# other files to ignore
+*.sln
+*.VC.opendb
+Kinect Reader/Kinect Reader.vcxproj
+Kinect Reader/Kinect Reader.vcxproj.filters

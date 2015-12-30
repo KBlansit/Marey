@@ -19,6 +19,8 @@ private:
 
     // attributes
     IKinectSensor* _sensor;
+    IMultiSourceFrameReader* _reader;
+    ICoordinateMapper* _mapper;
 
     unsigned int _x;
     unsigned int _y;
