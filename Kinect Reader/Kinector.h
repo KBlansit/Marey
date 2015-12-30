@@ -1,4 +1,5 @@
 #pragma once
+#include <tuple>
 #include <Windows.h>
 #include <Kinect.h>
 
@@ -10,18 +11,25 @@ public:
     // destructor
     ~Kinector();
 
-    int getCoordsX();
-    int getCoordsY();
+    // methods
+    std::tuple<unsigned int, unsigned int> updateCoords();
 
 private:
     // methods
     HRESULT initKinect();
+    void updateFrame();
 
     // attributes
+    // sensor and mapper
     IKinectSensor* _sensor;
-    IMultiSourceFrameReader* _reader;
     ICoordinateMapper* _mapper;
 
-    unsigned int _x;
-    unsigned int _y;
+    // frame readers
+    IMultiSourceFrameReader* _multiReader;
+
+    // frames source
+    IMultiSourceFrame* _multiSource;
+
+
+    std::tuple<unsigned int, unsigned int> _coords;
 };
