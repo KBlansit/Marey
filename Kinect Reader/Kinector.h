@@ -18,29 +18,18 @@ private:
     // methods
     HRESULT initKinect();
     void updateFrame();
-    void getBodyCoord();
 
     // attributes
-    BOOLEAN _tracked;
-    std::tuple<unsigned int, unsigned int> _coords;
-
-    // kinect specific attributes
     // sensor and mapper
-    IKinectSensor* _sensor = nullptr;
-    ICoordinateMapper* _mapper = nullptr;
+    IKinectSensor* _sensor;
+    ICoordinateMapper* _mapper;
 
     // frame readers
-    IMultiSourceFrameReader* _multiReader = nullptr;
+    IMultiSourceFrameReader* _multiReader;
 
     // frames source
-    IMultiSourceFrame* _multiSource = nullptr;
+    IMultiSourceFrame* _multiSource;
 
-    // frames
-    IBodyFrame* _bodyFrame = nullptr;
 
-    // kinect references
-    IBodyFrameReference* _bodyRef = nullptr;
-
-    // joints
-    Joint joints[JointType_Count];
+    std::tuple<unsigned int, unsigned int> _coords;
 };

@@ -58,37 +58,8 @@ void Kinector::updateFrame() {
     if (!SUCCEEDED(hr))
         return;
 
-    getBodyCoord();
-
-    if (_multiSource)
+    if (_multiSource) {
         _multiSource->Release();
-}
-
-void Kinector::getBodyCoord() {
-    _multiSource->get_BodyFrameReference(&_bodyRef);
-    _bodyRef->AcquireFrame(&_bodyFrame);
-    _tracked = FALSE;
-
-    // BODT_COUNT == 6 as defiend within kinect framework
-    IBody* body[BODY_COUNT] = { 0 };
-    _bodyFrame->GetAndRefreshBodyData(BODY_COUNT, body);
-    for (int i = 0; i < BODY_COUNT; i++) {
-        // converts _tracked to TRUE when tracked
-        body[i]->get_IsTracked(&_tracked);
-        if (_tracked) {
-            body[i]->GetJoints(JointType_Count, joints);
-            break;
-        }
+        cout << "released frameSource\n";
     }
-    if (_tracked) {
-        cout << "x: " << joints[JointType_Head].Position.X;
-        cout << "  ";
-        cout << "y: " << joints[JointType_Head].Position.Y;
-        cout << "\r";
-    }
-
-    if (_bodyFrame)
-        _bodyFrame->Release();
-    if (_bodyRef)
-        _bodyRef->Release();
 }
