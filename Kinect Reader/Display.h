@@ -47,4 +47,29 @@ private:
     const unsigned int INIT_H = 50;
     const unsigned int INIT_W = 50;
 
+    // structre of body coords for plotting
+    // _body => _bodyPart => XYZ
+    // three member structure of X Y Z coordinates for kinect joints
+    struct _bodyCoords{
+        // along the spine
+        struct _headCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _cervicalSpineCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _sacrumSpineCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+
+        // right limbs
+        struct _handRightCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _elbowRightCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _shoulderRightCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _hipRightCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _kneeRightCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _footRightCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+
+        // left limbs
+        struct _handLeftCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _elbowLeftCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _shoulderLeftCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _hipLeftCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _kneeLeftCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+        struct _footLeftCoords { unsigned int X; unsigned int Y; unsigned int Z; };
+    };
 };

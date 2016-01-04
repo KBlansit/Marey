@@ -1,7 +1,7 @@
 #pragma once
-#include <tuple>
 #include <Windows.h>
 #include <Kinect.h>
+#include "Skeleton.h"
 
 class Kinector {
 public:
@@ -12,24 +12,37 @@ public:
     ~Kinector();
 
     // methods
-    std::tuple<unsigned int, unsigned int> updateCoords();
+    _skeleton getData();
 
 private:
     // methods
     HRESULT initKinect();
     void updateFrame();
+    void updateBody();
 
     // attributes
+    BOOLEAN _tracked;
+
+    // kinect specific attributes
     // sensor and mapper
-    IKinectSensor* _sensor;
-    ICoordinateMapper* _mapper;
+    IKinectSensor* _sensor = nullptr;
+    ICoordinateMapper* _mapper = nullptr;
 
     // frame readers
-    IMultiSourceFrameReader* _multiReader;
+    IMultiSourceFrameReader* _multiReader = nullptr;
 
     // frames source
-    IMultiSourceFrame* _multiSource;
+    IMultiSourceFrame* _multiSource = nullptr;
 
+    // frames
+    IBodyFrame* _bodyFrame = nullptr;
 
-    std::tuple<unsigned int, unsigned int> _coords;
+    // kinect references
+    IBodyFrameReference* _bodyRef = nullptr;
+
+    // joints
+    Joint joints[JointType_Count];
+
+    // body data
+    _skeleton* _body;
 };

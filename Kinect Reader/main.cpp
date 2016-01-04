@@ -5,7 +5,7 @@
 int main(int argc, char* argv[]) {
     Kinector K;
     while (TRUE) {
-        K.updateCoords();
+        K.getData();
     }
 
     // Display display;
