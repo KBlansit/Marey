@@ -18,6 +18,8 @@ Kinector::~Kinector() {
 _skeleton Kinector::getData() {
     updateFrame();
     updateBody();
+    
+    return *_body;
 }
 
 // private

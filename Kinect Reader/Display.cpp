@@ -18,6 +18,10 @@ Display::~Display() {
 
 // public methods
 
+void Display::setBody(_skeleton body) {
+
+}
+
 // run method
 void Display::runDisplay() {
     initSystem();
