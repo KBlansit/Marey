@@ -15,6 +15,10 @@ Kinector::~Kinector() {
 }
 
 // methods
+bool Kinector::isTracked() {
+    return _tracked;
+}
+
 _skeleton Kinector::getData() {
     updateFrame();
     updateBody();
