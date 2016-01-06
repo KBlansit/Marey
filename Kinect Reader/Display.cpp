@@ -61,8 +61,6 @@ Display::~Display() {
 
 // public methods
 
-void Display::setBody(_skeleton body) {
-}
 
 // run method
 void Display::runDisplay() {
@@ -85,18 +83,29 @@ void Display::processInput() {
     }
 }
 
+// return body data to display
+void Display::setBody() {
+    _bodyCoords = &_k.getData();
+}
+
 // draw display
 void Display::drawDisplay() {
     while (_currState != DisplayState::OFF) {        
         glClearColor(0.0f, 0.15f, 0.3f, 0.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        cout << "X Pos: ";
+        cout << _bodyCoords->_head.X;
+        cout << "\r";
+        /*
         glBegin(GL_LINES);
 
-        glVertex2f(0.0, 0.0);
-        glVertex2f(0.1, 0.1);
+        // head to cervical spine
+        glVertex2f(_bodyCoords->_head.X, _bodyCoords->_head.Y);
+        glVertex2f(_bodyCoords->_head.X, _bodyCoords->_head.Y);
 
         glEnd();
+        */
 
         // swap window
         SDL_GL_SwapWindow(_window);
@@ -104,3 +113,4 @@ void Display::drawDisplay() {
         processInput();
     }
 }
+
