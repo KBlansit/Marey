@@ -1,7 +1,8 @@
 #pragma once
 #include <SDL\SDL.h>
-#include "Skeleton.h"
 #include "GL\glew.h"
+#include "Skeleton.h"
+#include "Kinector.h"
 
 enum class DisplayState { RUNNING, OFF };
 
@@ -14,11 +15,11 @@ public:
     ~Display();
 
     // methods
-    void setBody(_skeleton body);
     void runDisplay();
 
 private:
     // methods
+    void setBody();
     void processInput();
     void drawDisplay();
 
@@ -26,6 +27,8 @@ private:
     SDL_Window* _window = nullptr;
     SDL_Renderer* _rndr = nullptr;
     SDL_Texture* _txtr = nullptr;
+
+    Kinector _k;
 
     DisplayState _currState;
 
