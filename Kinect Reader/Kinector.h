@@ -12,6 +12,7 @@ public:
     ~Kinector();
 
     // methods
+    bool isTracked();
     _skeleton getData();
 
 private:
