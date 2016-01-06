@@ -12,6 +12,7 @@ public:
     ~Kinector();
 
     // methods
+    void updateKinect();
     bool isTracked();
     _skeleton getData();
 

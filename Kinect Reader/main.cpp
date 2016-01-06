@@ -7,12 +7,14 @@ int main(int argc, char* argv[]) {
     Kinector K;
 
     while (TRUE) {
+        K.updateKinect();
+        /*
         if (K.isTracked()) {
             _skeleton tempSkeleton = K.getData();
-            std::cout << "Tracking:";
-            std::cout << tempSkeleton._head.X;
+            std::cout << "tracking...";
             std::cout << "\r";
         }
+            */
     }
 
 
