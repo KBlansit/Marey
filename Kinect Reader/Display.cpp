@@ -50,9 +50,6 @@ Display::Display() {
         return;
     }
 
-    if (_vboID == 0) {
-        glGenBuffers(1, &_vboID);
-    }
 }
 
 // desctuctor

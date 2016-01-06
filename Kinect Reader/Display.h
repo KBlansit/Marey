@@ -27,11 +27,7 @@ private:
     SDL_Renderer* _rndr = nullptr;
     SDL_Texture* _txtr = nullptr;
 
-    SDL_Rect _r;
-
     DisplayState _currState;
-        
-    GLuint _vboID = 0;
 
     // const attributes
     const unsigned int _scnWidth = 1024;
