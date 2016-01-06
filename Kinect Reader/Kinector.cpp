@@ -15,14 +15,15 @@ Kinector::~Kinector() {
 }
 
 // methods
+void Kinector::updateKinect() {
+    updateFrame();
+}
+
 bool Kinector::isTracked() {
     return _tracked;
 }
 
 _skeleton Kinector::getData() {
-    updateFrame();
-    updateBody();
-    
     return *_body;
 }
 
@@ -63,6 +64,8 @@ void Kinector::updateFrame() {
     if (!SUCCEEDED(hr))
         return;
 
+    updateBody();
+
     if (_multiSource)
         _multiSource->Release();
 }
@@ -87,6 +90,7 @@ void Kinector::updateBody() {
     }
 
     // if tracked, update _body
+    /*
     if (_tracked) {
         // update spine
         _body->_head = joints[JointType_Head].Position;
@@ -108,6 +112,14 @@ void Kinector::updateBody() {
         _body->_hipLeft = joints[JointType_HipLeft].Position;
         _body->_kneeLeft = joints[JointType_KneeLeft].Position;
         _body->_footLeft = joints[JointType_FootLeft].Position;
+    }
+    */
+
+    if (_tracked) {
+        cout << "x: " << joints[JointType_Head].Position.X;
+        cout << "  ";
+        cout << "y: " << joints[JointType_Head].Position.Y;
+        cout << "\r";
     }
 
     if (_bodyFrame)
