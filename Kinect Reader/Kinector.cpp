@@ -26,6 +26,8 @@ bool Kinector::isTracked() {
 }
 
 _skeleton Kinector::getData() {
+    updateFrame();
+
     return *_body;
 }
 
@@ -97,7 +99,6 @@ void Kinector::updateBody() {
         _body->_head.X = joints[JointType_Head].Position.X;
         _body->_head.Y = joints[JointType_Head].Position.Y;
 
-    /*
         _body->_cervicalSpine.X = joints[JointType_Neck].Position.X;
         _body->_cervicalSpine.Y = joints[JointType_Neck].Position.Y;
 
@@ -141,12 +142,10 @@ void Kinector::updateBody() {
 
         _body->_footLeft.X = joints[JointType_FootLeft].Position.X;
         _body->_footLeft.Y = joints[JointType_FootLeft].Position.Y;
-    */
     }
 
+    /*
     if (_tracked) {
-        _body->_head.X = joints[JointType_Head].Position.X;
-        _body->_head.Y = joints[JointType_Head].Position.Y;
 
         cout << "x: ";
         cout << _body->_head.X;
@@ -155,6 +154,7 @@ void Kinector::updateBody() {
         cout << _body->_head.Y;
         cout << "\r";
     }
+    */
 
 
     if (_bodyFrame)

@@ -9,6 +9,8 @@ typedef steady_clock Clock;
 
 // unparameterized constructor
 Display::Display() {
+    _bodyCoords = new _skeleton;
+
     _currState = DisplayState::RUNNING;
 
     // initialize SDL
@@ -49,7 +51,6 @@ Display::Display() {
     if (_rndr == nullptr) {
         return;
     }
-
 }
 
 // desctuctor
@@ -60,7 +61,6 @@ Display::~Display() {
 }
 
 // public methods
-
 
 // run method
 void Display::runDisplay() {
@@ -91,13 +91,15 @@ void Display::setBody() {
 // draw display
 void Display::drawDisplay() {
     while (_currState != DisplayState::OFF) {        
+        setBody();
+
         glClearColor(0.0f, 0.15f, 0.3f, 0.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         cout << "X Pos: ";
         cout << _bodyCoords->_head.X;
         cout << "\r";
-        /*
+
         glBegin(GL_LINES);
 
         // head to cervical spine
@@ -105,7 +107,6 @@ void Display::drawDisplay() {
         glVertex2f(_bodyCoords->_head.X, _bodyCoords->_head.Y);
 
         glEnd();
-        */
 
         // swap window
         SDL_GL_SwapWindow(_window);
@@ -113,4 +114,3 @@ void Display::drawDisplay() {
         processInput();
     }
 }
-
