@@ -3,19 +3,25 @@
 #include "Display.h"
 #include "Kinector.h"
 
+using namespace std;
+
 int main(int argc, char* argv[]) {
     Kinector K;
 
     while (TRUE) {
         K.updateKinect();
         if (K.isTracked()) {
+
             _skeleton tempSkeleton = K.getData();
-            std::cout << "tracking...";
-            std::cout << "\r";
+
+            cout << "x: ";
+            cout << tempSkeleton._head.X;
+            cout << "  ";
+            cout << "y: ";
+            cout << tempSkeleton._head.Y;
+            cout << "\r";
         }
     }
-
-
     
     /*
     Display display;
