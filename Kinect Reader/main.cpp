@@ -8,22 +8,20 @@ int main(int argc, char* argv[]) {
 
     while (TRUE) {
         K.updateKinect();
-        /*
         if (K.isTracked()) {
             _skeleton tempSkeleton = K.getData();
             std::cout << "tracking...";
             std::cout << "\r";
         }
-            */
     }
 
 
-    /*
     
+    /*
     Display display;
     display.runDisplay();
-
     */
+
 
     return 0;
 }

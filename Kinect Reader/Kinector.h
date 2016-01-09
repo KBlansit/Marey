@@ -46,5 +46,5 @@ private:
     Joint joints[JointType_Count];
 
     // body data
-    _skeleton* _body;
+    _skeleton* _body = nullptr;
 };
