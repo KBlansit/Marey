@@ -36,8 +36,5 @@ private:
     const unsigned int _scnWidth = 1024;
     const unsigned int _scnHeight = 768;
 
-    // structre of body coords for plotting
-    // _body => _bodyPart => XYZ
-    // three member structure of X Y Z coordinates for kinect joints
     _skeleton* _bodyCoords = nullptr;
 };

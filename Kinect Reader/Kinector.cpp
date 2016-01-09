@@ -7,6 +7,8 @@ using namespace std;
 
 // constructor
 Kinector::Kinector() {
+    _body = new _skeleton;
+
     HRESULT HR = initKinect();
 }
 
@@ -90,37 +92,70 @@ void Kinector::updateBody() {
     }
 
     // if tracked, update _body
-    /*
     if (_tracked) {
         // update spine
-        _body->_head = joints[JointType_Head].Position;
-        _body->_cervicalSpine = joints[JointType_Neck].Position;
-        _body->_sacrumSpine = joints[JointType_SpineBase].Position;
+        _body->_head.X = joints[JointType_Head].Position.X;
+        _body->_head.Y = joints[JointType_Head].Position.Y;
 
-        // update right limbs
-        _body->_handRight = joints[JointType_HandRight].Position;
-        _body->_elbowRight = joints[JointType_ElbowRight].Position;
-        _body->_shoulderRight = joints[JointType_ShoulderRight].Position;
-        _body->_hipRight = joints[JointType_HipRight].Position;
-        _body->_kneeRight = joints[JointType_KneeRight].Position;
-        _body->_footRight = joints[JointType_FootRight].Position;
+    /*
+        _body->_cervicalSpine.X = joints[JointType_Neck].Position.X;
+        _body->_cervicalSpine.Y = joints[JointType_Neck].Position.Y;
 
-        // update left limbs
-        _body->_handLeft = joints[JointType_HandLeft].Position;
-        _body->_elbowLeft = joints[JointType_ElbowLeft].Position;
-        _body->_shoulderLeft = joints[JointType_ShoulderLeft].Position;
-        _body->_hipLeft = joints[JointType_HipLeft].Position;
-        _body->_kneeLeft = joints[JointType_KneeLeft].Position;
-        _body->_footLeft = joints[JointType_FootLeft].Position;
-    }
+        _body->_sacrumSpine.X = joints[JointType_SpineBase].Position.X;
+        _body->_sacrumSpine.Y = joints[JointType_SpineBase].Position.Y;
+
+        // update right limb
+        _body->_handRight.X = joints[JointType_HandRight].Position.X;
+        _body->_handRight.Y = joints[JointType_HandRight].Position.Y;
+
+        _body->_elbowRight.X = joints[JointType_ElbowRight].Position.X;
+        _body->_elbowRight.Y = joints[JointType_ElbowRight].Position.Y;
+
+        _body->_shoulderRight.X = joints[JointType_ShoulderRight].Position.X;
+        _body->_shoulderRight.Y = joints[JointType_ShoulderRight].Position.Y;
+
+        _body->_hipRight.X = joints[JointType_HipRight].Position.X;
+        _body->_hipRight.Y = joints[JointType_HipRight].Position.Y;
+
+        _body->_kneeRight.X = joints[JointType_KneeRight].Position.X;
+        _body->_kneeRight.Y = joints[JointType_KneeRight].Position.Y;
+
+        _body->_footRight.X = joints[JointType_FootRight].Position.X;
+        _body->_footRight.Y = joints[JointType_FootRight].Position.Y;
+
+        // update lleft limb
+        _body->_handLeft.X = joints[JointType_HandLeft].Position.X;
+        _body->_handLeft.Y = joints[JointType_HandLeft].Position.Y;
+
+        _body->_elbowLeft.X = joints[JointType_ElbowLeft].Position.X;
+        _body->_elbowLeft.Y = joints[JointType_ElbowLeft].Position.Y;
+
+        _body->_shoulderLeft.X = joints[JointType_ShoulderLeft].Position.X;
+        _body->_shoulderLeft.Y = joints[JointType_ShoulderLeft].Position.Y;
+
+        _body->_hipLeft.X = joints[JointType_HipLeft].Position.X;
+        _body->_hipLeft.Y = joints[JointType_HipLeft].Position.Y;
+
+        _body->_kneeLeft.X = joints[JointType_KneeLeft].Position.X;
+        _body->_kneeLeft.Y = joints[JointType_KneeLeft].Position.Y;
+
+        _body->_footLeft.X = joints[JointType_FootLeft].Position.X;
+        _body->_footLeft.Y = joints[JointType_FootLeft].Position.Y;
     */
+    }
 
     if (_tracked) {
-        cout << "x: " << joints[JointType_Head].Position.X;
+        _body->_head.X = joints[JointType_Head].Position.X;
+        _body->_head.Y = joints[JointType_Head].Position.Y;
+
+        cout << "x: ";
+        cout << _body->_head.X;
         cout << "  ";
-        cout << "y: " << joints[JointType_Head].Position.Y;
+        cout << "y: ";
+        cout << _body->_head.Y;
         cout << "\r";
     }
+
 
     if (_bodyFrame)
         _bodyFrame->Release();
