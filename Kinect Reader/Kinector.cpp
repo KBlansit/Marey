@@ -124,7 +124,7 @@ void Kinector::updateBody() {
         _body->_footRight.X = joints[JointType_FootRight].Position.X;
         _body->_footRight.Y = joints[JointType_FootRight].Position.Y;
 
-        // update lleft limb
+        // update left limb
         _body->_handLeft.X = joints[JointType_HandLeft].Position.X;
         _body->_handLeft.Y = joints[JointType_HandLeft].Position.Y;
 
