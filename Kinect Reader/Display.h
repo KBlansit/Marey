@@ -20,6 +20,7 @@ public:
 private:
     // methods
     void setBody();
+    void setTimeDiff();
     void processInput();
     void drawBody();
     void drawDisplay();
@@ -40,4 +41,5 @@ private:
     _skeleton* _bodyCoords = nullptr;
 
     bool _tracked = FALSE;
+    long* _timeDiff = nullptr;
 };

@@ -79,9 +79,10 @@ void Display::processInput() {
             _currState = DisplayState::OFF;
             break;
         case SDL_KEYDOWN:
-            if (SDLK_RETURN) {
-                cout << "return";
-                cout << "\r";
+            if (evnt.key.keysym.sym == SDLK_RETURN) {
+                _k.startTimer();
+                _timeDiff = new long;
+                cout << "Started Timer" << endl;
             }
         }
     }
@@ -90,6 +91,10 @@ void Display::processInput() {
 // return body data to display
 void Display::setBody() {
     _bodyCoords = &_k.getData();
+}
+
+void Display::setTimeDiff() {
+    *_timeDiff = _k.getTimeDiff();
 }
 
 void Display::drawBody() {
@@ -184,10 +189,13 @@ void Display::drawBody() {
 void Display::drawDisplay() {
     while (_currState != DisplayState::OFF) {        
         setBody();
+        if (_timeDiff != nullptr) {
+            setTimeDiff();
+            cout << *_timeDiff << "\r";
+        }
 
         glClearColor(0.0f, 0.15f, 0.3f, 0.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 
         if (_k.isTracked()) {
             drawBody();
