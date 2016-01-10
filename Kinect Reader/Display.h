@@ -37,4 +37,6 @@ private:
     const unsigned int _scnHeight = 768;
 
     _skeleton* _bodyCoords = nullptr;
+
+    bool _tracked = FALSE;
 };

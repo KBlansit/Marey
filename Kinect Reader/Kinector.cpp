@@ -144,19 +144,6 @@ void Kinector::updateBody() {
         _body->_footLeft.Y = joints[JointType_FootLeft].Position.Y;
     }
 
-    /*
-    if (_tracked) {
-
-        cout << "x: ";
-        cout << _body->_head.X;
-        cout << "  ";
-        cout << "y: ";
-        cout << _body->_head.Y;
-        cout << "\r";
-    }
-    */
-
-
     if (_bodyFrame)
         _bodyFrame->Release();
 
