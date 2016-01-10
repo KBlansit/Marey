@@ -42,7 +42,7 @@ _skeleton Kinector::getData() {
 
 long Kinector::getTimeDiff() {
     if (_initTime == nullptr || _currTime == nullptr) {
-        return;
+        return NULL;
     }
 
     milliseconds diffTime = duration_cast<milliseconds>(*_initTime - *_currTime);
