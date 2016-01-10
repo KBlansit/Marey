@@ -45,7 +45,7 @@ long Kinector::getTimeDiff() {
         return NULL;
     }
 
-    milliseconds diffTime = duration_cast<milliseconds>(*_initTime - *_currTime);
+    milliseconds diffTime = duration_cast<milliseconds>(*_currTime - *_initTime);
 
     return diffTime.count();
 }
