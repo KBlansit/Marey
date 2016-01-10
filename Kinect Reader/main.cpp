@@ -6,6 +6,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
+    /*
     Kinector K;
     _skeleton* tempSkeleton = nullptr;
     tempSkeleton = new _skeleton;
@@ -29,9 +30,8 @@ int main(int argc, char* argv[]) {
             cout << "\r";
         }
     }
+    */
     
-    /*
     Display display;
     display.runDisplay();
-    */
 }

@@ -78,6 +78,11 @@ void Display::processInput() {
         case SDL_QUIT:
             _currState = DisplayState::OFF;
             break;
+        case SDL_KEYDOWN:
+            if (SDLK_RETURN) {
+                cout << "return";
+                cout << "\r";
+            }
         }
     }
 }
