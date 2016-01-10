@@ -1,4 +1,5 @@
 #include "Kinector.h"
+
 #include <iostream>
 
 using namespace std;

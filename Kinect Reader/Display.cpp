@@ -1,7 +1,8 @@
+#include "Display.h"
+
 #include <string>
 #include <iostream>
 #include <chrono>
-#include "Display.h"
 
 using namespace std;
 using namespace std::chrono;
