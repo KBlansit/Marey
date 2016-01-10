@@ -33,16 +33,4 @@ int main(int argc, char* argv[]) {
     Display display;
     display.runDisplay();
     */
-    typedef std::chrono::high_resolution_clock Clock;
-    Clock::time_point* _initTime = nullptr;
-    _initTime = new Clock::time_point;
-    *_initTime = Clock::now();
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-
-    auto nowTime = Clock::now();
-
-    auto diffTime = std::chrono::duration_cast<std::chrono::milliseconds>(nowTime - *_initTime);
-    std::cout << diffTime.count();
-
-    return 0;
 }

@@ -20,6 +20,7 @@ public:
     void startTimer();
     bool isTracked();
     _skeleton getData();
+    long getTimeDiff();
 
 private:
     // methods
@@ -55,4 +56,5 @@ private:
 
     // timer
     Clock::time_point* _initTime = nullptr;
+    Clock::time_point* _currTime = nullptr;
 };

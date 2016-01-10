@@ -1,8 +1,10 @@
 #include "Kinector.h"
 
 #include <iostream>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 // public
 
@@ -24,6 +26,7 @@ void Kinector::updateKinect() {
 
 void Kinector::startTimer() {
     _initTime = new Clock::time_point;
+
     *_initTime = Clock::now();
 }
 
@@ -35,6 +38,16 @@ _skeleton Kinector::getData() {
     updateFrame();
 
     return *_body;
+}
+
+long Kinector::getTimeDiff() {
+    if (_initTime == nullptr || _currTime == nullptr) {
+        return;
+    }
+
+    milliseconds diffTime = duration_cast<milliseconds>(*_initTime - *_currTime);
+
+    return diffTime.count();
 }
 
 // private
@@ -73,6 +86,13 @@ void Kinector::updateFrame() {
     // may be limited by frame rate on Kinect sensor, and will fall through
     if (!SUCCEEDED(hr))
         return;
+
+    if (_initTime != nullptr) {
+        if (_currTime == nullptr) {
+            _currTime = new Clock::time_point;
+        }
+        *_currTime = Clock::now();
+    }
 
     updateBody();
 
