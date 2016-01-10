@@ -22,6 +22,11 @@ void Kinector::updateKinect() {
     updateFrame();
 }
 
+void Kinector::startTimer() {
+    _initTime = new Clock::time_point;
+    *_initTime = Clock::now();
+}
+
 bool Kinector::isTracked() {
     return _tracked;
 }

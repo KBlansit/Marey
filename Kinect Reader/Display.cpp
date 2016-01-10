@@ -5,8 +5,6 @@
 #include <chrono>
 
 using namespace std;
-using namespace std::chrono;
-typedef steady_clock Clock;
 
 // unparameterized constructor
 Display::Display() {
