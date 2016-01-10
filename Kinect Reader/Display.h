@@ -21,6 +21,7 @@ private:
     // methods
     void setBody();
     void processInput();
+    void drawBody();
     void drawDisplay();
 
     // attributes
