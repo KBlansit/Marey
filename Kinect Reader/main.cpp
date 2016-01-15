@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include <direct.h>
 #include "Display.h"
 #include "Kinector.h"
 
@@ -32,6 +33,8 @@ int main(int argc, char* argv[]) {
     }
     */
     
+    _mkdir("example_file");
+
     Display display;
     display.runDisplay();
 

@@ -84,8 +84,9 @@ void Kinector::updateFrame() {
     hr = _multiReader->AcquireLatestFrame(&_multiSource);
 
     // may be limited by frame rate on Kinect sensor, and will fall through
-    if (!SUCCEEDED(hr))
+    if (!SUCCEEDED(hr)) {
         return;
+    }
 
     if (_initTime != nullptr) {
         if (_currTime == nullptr) {
@@ -96,8 +97,9 @@ void Kinector::updateFrame() {
 
     updateBody();
 
-    if (_multiSource)
+    if (_multiSource) {
         _multiSource->Release();
+    }
 }
 
 void Kinector::updateBody() {
@@ -170,9 +172,11 @@ void Kinector::updateBody() {
         _body->_footLeft.Y = joints[JointType_FootLeft].Position.Y;
     }
 
-    if (_bodyFrame)
+    if (_bodyFrame) {
         _bodyFrame->Release();
+    }
 
-    if (_bodyRef)
+    if (_bodyRef) {
         _bodyRef->Release();
+    }
 }
